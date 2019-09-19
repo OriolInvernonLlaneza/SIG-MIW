@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Pokémon GO zona Llamaquique</name>
+    <description>Ruta para optimizar las actividades de Pokémon GO desde el Campus de los Catalanes hasta el Centro Comercial diseñado por Calatrava</description>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-DB4436-nodesc-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-nodesc-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-FF0000-4000-nodesc-normal">
+      <LineStyle>
+        <color>ff0000ff</color>
+        <width>4</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-FF0000-4000-nodesc-highlight">
+      <LineStyle>
+        <color>ff0000ff</color>
+        <width>6</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-FF0000-4000-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-FF0000-4000-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-FF0000-4000-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Marcadores</name>
+      <Placemark>
+        <name>Pokeparada Almácigas Vetustas</name>
+        <description><![CDATA[<img src="https://doc-08-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/pph7ed7l429oa3s3f8b4dssq8s/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALpv3gJkZvf6NOrr8Dgi5UVzauNy9ymeiGzOMfvGRLYw-18K3wgCK6jk7eWEkg_OfD98lONYfS-_dtKngsl583lppKsTEBjZ9t6gUVvuxdtGJl1u1IL9X7ZA2puAoQm6PVr1cDOSZPtQmhzDYIEX8EbxE1YDNyK8KJRkQ4555DXaFM59tRiRpcjHnK35m4bX-a7d1jmMRq6rx5GqV1kN1nLglRs9SxDTtDTUeEbMq9PwKuBzob8j61T4kXxY62XQ5Czln0kolv7aDSuOHqH2G2C4s7qHnA?fife" height="200" width="auto" /><br><br>descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-08-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/pph7ed7l429oa3s3f8b4dssq8s/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALpv3gJkZvf6NOrr8Dgi5UVzauNy9ymeiGzOMfvGRLYw-18K3wgCK6jk7eWEkg_OfD98lONYfS-_dtKngsl583lppKsTEBjZ9t6gUVvuxdtGJl1u1IL9X7ZA2puAoQm6PVr1cDOSZPtQmhzDYIEX8EbxE1YDNyK8KJRkQ4555DXaFM59tRiRpcjHnK35m4bX-a7d1jmMRq6rx5GqV1kN1nLglRs9SxDTtDTUeEbMq9PwKuBzob8j61T4kXxY62XQ5Czln0kolv7aDSuOHqH2G2C4s7qHnA?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.859733,43.35933,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gimnasio Calatrava</name>
+        <description><![CDATA[<img src="https://doc-0o-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/d7tmg184l3oqjrf520u4pcblrs/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALoAfIow_N_ur75T_TSdpM1AC0wN4SaA95v2gE2nHduPq6ELnqYyZkQa_c-TYU-ws0LwKyzYHV9-Kh8Fv2gQwsKoSB9FshQrIz-WgDsZTIDcpuy4aEk2Sn6oU_-L66AUUkYTdHS43hflYLvzKw49T85WfbplcJ-RHHus49L7n3-W8xaC6lpDxbguO16N-g4plzyfSd9ifMO601TaioPmPN2EHsoXbHSpahivyWsbnJVtevShjsje7YSsHsBACXthPNnderf8IJQcrw2xFqtRwfHzbxND_A?fife" height="200" width="auto" /><br><br>descripción: <br>color: 2]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>2</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-0o-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/d7tmg184l3oqjrf520u4pcblrs/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALoAfIow_N_ur75T_TSdpM1AC0wN4SaA95v2gE2nHduPq6ELnqYyZkQa_c-TYU-ws0LwKyzYHV9-Kh8Fv2gQwsKoSB9FshQrIz-WgDsZTIDcpuy4aEk2Sn6oU_-L66AUUkYTdHS43hflYLvzKw49T85WfbplcJ-RHHus49L7n3-W8xaC6lpDxbguO16N-g4plzyfSd9ifMO601TaioPmPN2EHsoXbHSpahivyWsbnJVtevShjsje7YSsHsBACXthPNnderf8IJQcrw2xFqtRwfHzbxND_A?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.860316,43.359104,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gimnasio Llamaquique</name>
+        <description><![CDATA[<img src="https://doc-0s-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/rfkqeujgdqmjsao1l878stllqc/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALqXEtgo5AG6B38H2APRHaU8aZC1XJ-AP8tBVwgkuDxswCtETlCV_JpWVWHcEi_MSk0tP0b1p5mHo74_a77bjbICoAhwwMGWVorRX9jiYyAbfBJn5eSvaKtY-qAW4f7EOLrWTWCDdlx-52g284UBN8NAMVx5q6D5kr1RV6cTLYoTS5gYEsW5sgb1WXlqseRQnmvlI9jeXjlB6WDs46vpidCWWX-gQG84B4bG82fnmrr_hPWlUgG9OaCQKmePVC2l7IbbQx8vrGJTfq354OqiYtLdcv1E7Q?fife" height="200" width="auto" /><br><br>descripción: <br>color: 2]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>2</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-0s-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/rfkqeujgdqmjsao1l878stllqc/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALqXEtgo5AG6B38H2APRHaU8aZC1XJ-AP8tBVwgkuDxswCtETlCV_JpWVWHcEi_MSk0tP0b1p5mHo74_a77bjbICoAhwwMGWVorRX9jiYyAbfBJn5eSvaKtY-qAW4f7EOLrWTWCDdlx-52g284UBN8NAMVx5q6D5kr1RV6cTLYoTS5gYEsW5sgb1WXlqseRQnmvlI9jeXjlB6WDs46vpidCWWX-gQG84B4bG82fnmrr_hPWlUgG9OaCQKmePVC2l7IbbQx8vrGJTfq354OqiYtLdcv1E7Q?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.859236,43.358532,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokeparada Llamaquique</name>
+        <description><![CDATA[<img src="https://doc-14-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/h8phmg8nvhl6mde9rrc6kbjsh8/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALrcvc0yi536diOEgGS_VxD3J51Lnnsbtf6JYOFgjvdnJabOdswivKZ54UI_aRH_LsgCWRI__bF_r20O84i2GkOjlOPew_SaXzTQZmKajOsIedKVTehdlEM82tVx0vQjxUKWZaLpw484HYjnhrEjcHGw-j2e06XveLNTocxqVrp49KVhCWlQFYoKdRu6sWVx8OXg_EppGoQ34emQYNBpS4nm0RmfgyNW8a3bUIEr0wBSfM09mNn-qeNg_bjqEEFZsV9CVSbg7SHGJP8pakfcUy8oxaFdZw?fife" height="200" width="auto" /><br><br>descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-14-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/h8phmg8nvhl6mde9rrc6kbjsh8/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALrcvc0yi536diOEgGS_VxD3J51Lnnsbtf6JYOFgjvdnJabOdswivKZ54UI_aRH_LsgCWRI__bF_r20O84i2GkOjlOPew_SaXzTQZmKajOsIedKVTehdlEM82tVx0vQjxUKWZaLpw484HYjnhrEjcHGw-j2e06XveLNTocxqVrp49KVhCWlQFYoKdRu6sWVx8OXg_EppGoQ34emQYNBpS4nm0RmfgyNW8a3bUIEr0wBSfM09mNn-qeNg_bjqEEFZsV9CVSbg7SHGJP8pakfcUy8oxaFdZw?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.857284,43.3588,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokeparada Monumento a Regina</name>
+        <description><![CDATA[<img src="https://doc-10-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/3f9u4knil8fjqp6hggbm3fjr6c/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALrnbTYwB476j6Gqun1qOcLZuDUJfIjbI4qmB1NxH1ytCE1GPq6hscbOYG15qYYl3tyw_J3rn-afS6l9q7B5rpRTO3O-urq2IEq1j5bmRs3Ats-G1SliB_gWLSac1n6t14gilpv-6xkPJ8r7O3WGhW14BIuQD2KIwnpgKqI8zPb8WlnQJIKe9sn0CtWDJnjSnAnNvhg336IMY46YllDkCyiDzAjDR9PKQ-H7HRcOUxS6N1iTEV10Z-7E8riu0DeHq8J9py7iDaALJJFhgzTovLNpGwPnfg?fife" height="200" width="auto" /><br><br>descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-10-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/3f9u4knil8fjqp6hggbm3fjr6c/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALrnbTYwB476j6Gqun1qOcLZuDUJfIjbI4qmB1NxH1ytCE1GPq6hscbOYG15qYYl3tyw_J3rn-afS6l9q7B5rpRTO3O-urq2IEq1j5bmRs3Ats-G1SliB_gWLSac1n6t14gilpv-6xkPJ8r7O3WGhW14BIuQD2KIwnpgKqI8zPb8WlnQJIKe9sn0CtWDJnjSnAnNvhg336IMY46YllDkCyiDzAjDR9PKQ-H7HRcOUxS6N1iTEV10Z-7E8riu0DeHq8J9py7iDaALJJFhgzTovLNpGwPnfg?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.857248,43.358482,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokeparada graffiti Flemming</name>
+        <description><![CDATA[<img src="https://doc-0g-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/duv0mtga35qis1rmlmac8pbpj8/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALqOy543CtzaZfugJ-4uCIgkSTUHAoYjjSu0BBXnqxF8V5YOGEXshitmR0m7MlhEshx0acVZ1L1AIxuDU9j7Ih-h8Ok_CFVvAo-DY1rhWs5GLOCsMu5yKq0QpB7VOMGy3N3yCuIaXGnLQYhVDr53mEHlFS5CGxp5B6o4L1cylqu5d2skNt_hLJeh07SriLMqgVM4eg0MZHrptyN27govOm6lmHZo65EBQ_6H8jpjcgGv5LVB_vcFbDEQZmtG-kGEv4TwevAck_ByjOjwWsevi-vUoBMTMA?fife" height="200" width="auto" /><br><br>descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-0g-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/duv0mtga35qis1rmlmac8pbpj8/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALqOy543CtzaZfugJ-4uCIgkSTUHAoYjjSu0BBXnqxF8V5YOGEXshitmR0m7MlhEshx0acVZ1L1AIxuDU9j7Ih-h8Ok_CFVvAo-DY1rhWs5GLOCsMu5yKq0QpB7VOMGy3N3yCuIaXGnLQYhVDr53mEHlFS5CGxp5B6o4L1cylqu5d2skNt_hLJeh07SriLMqgVM4eg0MZHrptyN27govOm6lmHZo65EBQ_6H8jpjcgGv5LVB_vcFbDEQZmtG-kGEv4TwevAck_ByjOjwWsevi-vUoBMTMA?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.85631,43.357826,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zona Pokémon</name>
+        <description><![CDATA[<img src="https://doc-10-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/qr6pg6nhriacrluhfl39plbboc/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALo5XcSF0OEPE6I2dHsz--Lv6eNAKOY8Fwd8HSK8md5_n3JHtklmJW9BUlUhJ_o_Ajzmh5bsEf8LO9yq8Nb3O8Qxj0L9w9hQrFVFDLUiqWOEmhV8RO-XrDSNNd8zGdLcI_9YuqkQ-qYMf7mFon7pTwwMylzFJJKZkLoTxISmmLJff9o_-vaZ10LCK1aNvq9OZmSlzvMd-ocShxg5gz-jFWGkzbwIGz_dbCl9w8GGVtm5afMMcbg9ny9G57zbi2M28-gN8GJpHRFH168Iy_M_vXNuPwEcsg?fife" height="200" width="auto" /><br><br>descripción: <br>color: 1]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>1</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-10-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/qr6pg6nhriacrluhfl39plbboc/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALo5XcSF0OEPE6I2dHsz--Lv6eNAKOY8Fwd8HSK8md5_n3JHtklmJW9BUlUhJ_o_Ajzmh5bsEf8LO9yq8Nb3O8Qxj0L9w9hQrFVFDLUiqWOEmhV8RO-XrDSNNd8zGdLcI_9YuqkQ-qYMf7mFon7pTwwMylzFJJKZkLoTxISmmLJff9o_-vaZ10LCK1aNvq9OZmSlzvMd-ocShxg5gz-jFWGkzbwIGz_dbCl9w8GGVtm5afMMcbg9ny9G57zbi2M28-gN8GJpHRFH168Iy_M_vXNuPwEcsg?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.855442,43.35793,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokeparada grabado Fleming</name>
+        <description><![CDATA[<img src="https://doc-14-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/jcqvsqll3812obc8v9jgt5k900/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALqf-g2rwkIBHXacCjDmPxWSg7p7dD4ti4pVL5PL6kY3QIGpLLYDA7Di0fBqwtYWMob3qZ4iSp7lsgAPc9gNirXtvZRCKpCKq359DS4hOB3sKbokEAxgLMhm9se3PU3gwP7ZJ7qHa0bU5ZwhqHH3asnJnbnLtCiLAzZ1lHpG_mnBJJGFvuvnQiS57u6LLsCot-CxRPvokqpjceTKvTJ5WFBP-rW1r9W8vOB8Hu45hc-9SVVUDcQRar694I2dwXjColMkTPiZrcRB4ZezOosaUhq6YM5Qsg?fife" height="200" width="auto" /><br><br>descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-14-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/jcqvsqll3812obc8v9jgt5k900/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALqf-g2rwkIBHXacCjDmPxWSg7p7dD4ti4pVL5PL6kY3QIGpLLYDA7Di0fBqwtYWMob3qZ4iSp7lsgAPc9gNirXtvZRCKpCKq359DS4hOB3sKbokEAxgLMhm9se3PU3gwP7ZJ7qHa0bU5ZwhqHH3asnJnbnLtCiLAzZ1lHpG_mnBJJGFvuvnQiS57u6LLsCot-CxRPvokqpjceTKvTJ5WFBP-rW1r9W8vOB8Hu45hc-9SVVUDcQRar694I2dwXjColMkTPiZrcRB4ZezOosaUhq6YM5Qsg?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.855715,43.357754,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokeparada mural de la paz</name>
+        <description><![CDATA[<img src="https://doc-10-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/o57io74kv04g4c0ikaiv6oicus/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALr16LDB_y6JDrrhhGSAWC_6Zkh-ycffMx5WnSufxHStf_zWBhoag1KZ3Sfo87nBDO3vpmnqJ1ANIBJWW06LS4waD3qFgg1LXjzmuVZSNJJldtluqQ3YWGcI9frUji7aZCEHwtmo8JsRbND6BMvu_EzPJuA0MYnM7nd00V6_uvWM4dbPAV_qZSN1pFt1zit4NgbkUcWNSb6uMcs9K0K0oaPN5-E_3r9Z9EGF3SCwhDh7k1Dc8ne17Ky9cvQSWIfF2hNEw9lE0hyPFNSEPcTYi5p4qnkCBQ?fife" height="200" width="auto" /><br><br>descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-10-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/o57io74kv04g4c0ikaiv6oicus/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALr16LDB_y6JDrrhhGSAWC_6Zkh-ycffMx5WnSufxHStf_zWBhoag1KZ3Sfo87nBDO3vpmnqJ1ANIBJWW06LS4waD3qFgg1LXjzmuVZSNJJldtluqQ3YWGcI9frUji7aZCEHwtmo8JsRbND6BMvu_EzPJuA0MYnM7nd00V6_uvWM4dbPAV_qZSN1pFt1zit4NgbkUcWNSb6uMcs9K0K0oaPN5-E_3r9Z9EGF3SCwhDh7k1Dc8ne17Ky9cvQSWIfF2hNEw9lE0hyPFNSEPcTYi5p4qnkCBQ?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.854401,43.357536,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokeparada Facultad de Ciencias</name>
+        <description><![CDATA[<img src="https://doc-00-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/kibg7c9v247hbvih88butbrprs/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALoq-Ac9RiUZ1phlMoAIOOriF-ZRMzZVeTJJnDlCOVvbDbxlrw-UQZMrDadafM4LjLL4kIruYU63t6e0WrndNB_a2D1mRrKzFvUtaCgOrTPGg2j2BoedAj_4nZLq47v8n5DSBrONzAxtvOgMynN4FCboH6dgBiIY2IvFkQ34iJmQ0ycJlXvvx1u5Ftwa-MSsYrdn5Jkxd90r0iNmW01XcoBVzi6kJm93uzqWaUAJKNfX3mYZVPbE3-3oq8zzrZrjAmJ76DJQzFT9-56dtIkJxYmJDXpIGg?fife" height="200" width="auto" /><br><br>descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-00-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/kibg7c9v247hbvih88butbrprs/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALoq-Ac9RiUZ1phlMoAIOOriF-ZRMzZVeTJJnDlCOVvbDbxlrw-UQZMrDadafM4LjLL4kIruYU63t6e0WrndNB_a2D1mRrKzFvUtaCgOrTPGg2j2BoedAj_4nZLq47v8n5DSBrONzAxtvOgMynN4FCboH6dgBiIY2IvFkQ34iJmQ0ycJlXvvx1u5Ftwa-MSsYrdn5Jkxd90r0iNmW01XcoBVzi6kJm93uzqWaUAJKNfX3mYZVPbE3-3oq8zzrZrjAmJ76DJQzFT9-56dtIkJxYmJDXpIGg?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.853258,43.35759,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zona pokémon</name>
+        <description><![CDATA[<img src="https://doc-04-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/il7shkeao7678g5qcuqp72lo34/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALoaLVa09b76gkw2GRXLHvJrZQow2d5RE4ya3T_qvs_llwk-oC9Cn5P6KN0SSiFizq8imnhreqw9tBuK2YvJHzUg9uL5Qq5K-anUlLhpfh-fwQrAHHvxx4s3r9XcDA8FNALtExadAUK3uMHFITIDc4KauWxQbS8NYqNSBAkxa8Nogbc5yHQKEA8NeIbECehDPFKcrXCVWHWn_Q6OTimVe5ega5Lu4bPDpINR6FzkFeldBxOAKiubDSORNsK3L0rkIdHLn5kP2Pk8Sbtzb_OzuOfB0YhrYw?fife" height="200" width="auto" /><br><br>descripción: <br>color: 1]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>1</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-04-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/il7shkeao7678g5qcuqp72lo34/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALoaLVa09b76gkw2GRXLHvJrZQow2d5RE4ya3T_qvs_llwk-oC9Cn5P6KN0SSiFizq8imnhreqw9tBuK2YvJHzUg9uL5Qq5K-anUlLhpfh-fwQrAHHvxx4s3r9XcDA8FNALtExadAUK3uMHFITIDc4KauWxQbS8NYqNSBAkxa8Nogbc5yHQKEA8NeIbECehDPFKcrXCVWHWn_Q6OTimVe5ega5Lu4bPDpINR6FzkFeldBxOAKiubDSORNsK3L0rkIdHLn5kP2Pk8Sbtzb_OzuOfB0YhrYw?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.853018,43.35776,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gimnasio estatua Iglesia de San Francisco de Asís</name>
+        <description><![CDATA[<img src="https://doc-0o-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/c4cuo1955bguctfe84ccafcdos/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALrjd8fTT8Zgh8Ua3CFuZxpUS7e3t3POnM_jadcTke_Flq8boe-UaIzYV618av8s9NihPdYpwG6JOFJ_lDHpM_ATg4eSTUAtLiwHDc4H7c4ZF7CTS9zlMVyRvKW9pKenYwvvhEoPLdNn_QWL9BgURJWPnovvBtWwHR4D9Or2Cbumb3UQ3h2lFdHg6jwklqFgxN1LE8BkMCPmMmIB31dI76X3LSMsFxXsAkzadTRs7DtCnBaY1rnNgyxXcSrKyAnKuyW4teJsUhjif0hNXqs6N3VuWs3QTg?fife" height="200" width="auto" /><br><br>descripción: <br>color: 2]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>2</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-0o-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/c4cuo1955bguctfe84ccafcdos/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALrjd8fTT8Zgh8Ua3CFuZxpUS7e3t3POnM_jadcTke_Flq8boe-UaIzYV618av8s9NihPdYpwG6JOFJ_lDHpM_ATg4eSTUAtLiwHDc4H7c4ZF7CTS9zlMVyRvKW9pKenYwvvhEoPLdNn_QWL9BgURJWPnovvBtWwHR4D9Or2Cbumb3UQ3h2lFdHg6jwklqFgxN1LE8BkMCPmMmIB31dI76X3LSMsFxXsAkzadTRs7DtCnBaY1rnNgyxXcSrKyAnKuyW4teJsUhjif0hNXqs6N3VuWs3QTg?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.852058,43.35764,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokeparada Iglesia de San Francisco de Asís</name>
+        <description><![CDATA[descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.85186,43.357403,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zona pokémon</name>
+        <description><![CDATA[<img src="https://doc-0s-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/ur8g2hif28komok3vk8c656k20/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALoM1EU3uvC1EpsGeM9ecBN9r0wX2lVl9mwdUZw5E5o3AIbkSJonMVBgpFsHyKX971oIBrAZFTXJMVa8oKTjva0JRVU9LS7-ulhRxlaSRjBxC-tNY4hod3S67AHLQ-w0xfux_4QP3920V1_usJXWtNBOWIJ5VWats4cbzF5FXbqRVOK0qRLeltMaEGOXBWTVfZIS8b9ZwzH05lJYdl4ZAbUJ-wJG6Fe9vhbEN7dHUL909KUG1gTXVyakIh29_Su4lZjuRm4QZOgxMA5QOJyPlcyZO-KxkQ?fife" height="200" width="auto" /><br><br>descripción: <br>color: 1]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>1</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-0s-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/ur8g2hif28komok3vk8c656k20/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALoM1EU3uvC1EpsGeM9ecBN9r0wX2lVl9mwdUZw5E5o3AIbkSJonMVBgpFsHyKX971oIBrAZFTXJMVa8oKTjva0JRVU9LS7-ulhRxlaSRjBxC-tNY4hod3S67AHLQ-w0xfux_4QP3920V1_usJXWtNBOWIJ5VWats4cbzF5FXbqRVOK0qRLeltMaEGOXBWTVfZIS8b9ZwzH05lJYdl4ZAbUJ-wJG6Fe9vhbEN7dHUL909KUG1gTXVyakIh29_Su4lZjuRm4QZOgxMA5QOJyPlcyZO-KxkQ?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.851362,43.357346,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokeparada Auditorio Príncipe Felipe</name>
+        <description><![CDATA[<img src="https://doc-0g-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/knohssftcubgcu33thh7eu4abc/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALpRmM0jX1ZJLz_ZhKgf4qqgCgqzVxCs1BEZsND5-VGSlWnHs9X6R5j8MdgmRYHfDJhbWz_I_DvIQU2u-AD8jGAj4XERDsqto4URvKFGRQMCJhfym3qoMJy-x25xI9gQAA4BpekcClwM63USNOFIhQ5_nKNXXlhkl1pdUFNGCjX18UBshsMFmhUn7blUUZ7KdmKFoyE9L5It2RjRgDtTRBKtcm6ag-u-OoqXfawSiAujAzq9J0Ey7lyj4baN-CaOft_lzuviuPgNpQlfpIgCUFc4RY8EGg?fife" height="200" width="auto" /><br><br>descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-0g-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/knohssftcubgcu33thh7eu4abc/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALpRmM0jX1ZJLz_ZhKgf4qqgCgqzVxCs1BEZsND5-VGSlWnHs9X6R5j8MdgmRYHfDJhbWz_I_DvIQU2u-AD8jGAj4XERDsqto4URvKFGRQMCJhfym3qoMJy-x25xI9gQAA4BpekcClwM63USNOFIhQ5_nKNXXlhkl1pdUFNGCjX18UBshsMFmhUn7blUUZ7KdmKFoyE9L5It2RjRgDtTRBKtcm6ag-u-OoqXfawSiAujAzq9J0Ey7lyj4baN-CaOft_lzuviuPgNpQlfpIgCUFc4RY8EGg?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.85124,43.357204,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zona pokémon</name>
+        <description><![CDATA[<img src="https://doc-14-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/ibm51lub0f0iulreqgr16a6u44/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALpV7UTrhzrcT-j1Ret6Y3TNeeKvqlrB3NnDEpG38TZJIEKVstH0rdKkaW8SnQNLRVJ-2DuGbdc0JwLMPoLsEcsCkpf2UWDIq-p_JVbiA0re170H8deE1zf9zs-ZuQcC4JPjYFhpSR4o8ymLapPbWQpCbPapoVl-ZFCssQQNY0f1I7yGyJcA8lwSeNQFvQdjgzAJzhER6f81qJaXjqS7jXPDHjKyXNNuOqCTY1y1QCRHu3uj4A9L8gAmT61vAsys7dZO8bHfV3JEb3qQCMX6frS0EoMD4Q?fife" height="200" width="auto" /><br><br>descripción: <br>color: 1]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>1</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-14-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/ibm51lub0f0iulreqgr16a6u44/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALpV7UTrhzrcT-j1Ret6Y3TNeeKvqlrB3NnDEpG38TZJIEKVstH0rdKkaW8SnQNLRVJ-2DuGbdc0JwLMPoLsEcsCkpf2UWDIq-p_JVbiA0re170H8deE1zf9zs-ZuQcC4JPjYFhpSR4o8ymLapPbWQpCbPapoVl-ZFCssQQNY0f1I7yGyJcA8lwSeNQFvQdjgzAJzhER6f81qJaXjqS7jXPDHjKyXNNuOqCTY1y1QCRHu3uj4A9L8gAmT61vAsys7dZO8bHfV3JEb3qQCMX6frS0EoMD4Q?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.851058,43.356155,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokeparada EII</name>
+        <description><![CDATA[<img src="https://doc-08-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/ug897a87gijdt5c7kc5qkbma6k/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALqLBYnSF_FIS0NCs12_rsCxa3J8oXvMgFTjmRNbx9I_SBhDUYJDNmn-Y2JE0cn0GRg4oc7QooKe0ylKVw7DbM14VnCfaVu_mUOIPec9JoJjxiodXD5SMlFl84KQ2sMZme1XtFycMzUOk5p1Ajj68Xa6bMIEjzi-4aCwaKQY4W5y6LJHK_YAy1Oer_SWBsH3kZIeFlvr0i6q31R7XVg54V169KSO-oG-mFli7B6s8kCYoVjiZX2ED_-ZNbo_PtMtvfTPENel9COzARxXnAqiY2iqpt3HLw?fife" height="200" width="auto" /><br><br>descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-08-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/ug897a87gijdt5c7kc5qkbma6k/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALqLBYnSF_FIS0NCs12_rsCxa3J8oXvMgFTjmRNbx9I_SBhDUYJDNmn-Y2JE0cn0GRg4oc7QooKe0ylKVw7DbM14VnCfaVu_mUOIPec9JoJjxiodXD5SMlFl84KQ2sMZme1XtFycMzUOk5p1Ajj68Xa6bMIEjzi-4aCwaKQY4W5y6LJHK_YAy1Oer_SWBsH3kZIeFlvr0i6q31R7XVg54V169KSO-oG-mFli7B6s8kCYoVjiZX2ED_-ZNbo_PtMtvfTPENel9COzARxXnAqiY2iqpt3HLw?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.851366,43.354973,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokeparada Colegio Mayor San Gregorio</name>
+        <description><![CDATA[<img src="https://doc-0g-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/ik29ig0acbv5ged8mr3skcrsf4/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALp_FK9b9h31zwOVgvpFB7d8Y2y8v9Ic4rUuPBUJOLJ5yQF65p9if906a8mo-p9cl3EXgpfBNTI6vCAnZg94ksfio2T5fZY-Q2bi82TIeLMtNTWL4GzEdHUvKtADE-DUrlmcSZ2I9YbEaNyyxhSYQ06f0eVNs5lQX9SVQedrv2lAW9kztmPVuAM4qx9mbT8NNi5e1U2HcAUCaSw47IdE2TV_-NDzH_Wszer333p4rck065xSKDQLmr_6ZC7FrZBKGDoOaJCW8tnEFvLPgMeBxLeZ5s04pQ?fife" height="200" width="auto" /><br><br>descripción: <br>color: 0]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>0</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value>https://doc-0g-6k-mymaps.googleusercontent.com/untrusted/hostedimage/0u5vdnij0m2hhncfr8h1ilse7c/ik29ig0acbv5ged8mr3skcrsf4/1568548800000/x9IKFcSQV4Y33gNKqvXv56k_S7aPworr/11719895633486621444/1AF2TALp_FK9b9h31zwOVgvpFB7d8Y2y8v9Ic4rUuPBUJOLJ5yQF65p9if906a8mo-p9cl3EXgpfBNTI6vCAnZg94ksfio2T5fZY-Q2bi82TIeLMtNTWL4GzEdHUvKtADE-DUrlmcSZ2I9YbEaNyyxhSYQ06f0eVNs5lQX9SVQedrv2lAW9kztmPVuAM4qx9mbT8NNi5e1U2HcAUCaSw47IdE2TV_-NDzH_Wszer333p4rck065xSKDQLmr_6ZC7FrZBKGDoOaJCW8tnEFvLPgMeBxLeZ5s04pQ?fife</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.852101,43.3544,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zona pokémon</name>
+        <description><![CDATA[descripción: <br>color: 1]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="color">
+            <value>1</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -5.857694,43.358673,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Rutas</name>
+      <Placemark>
+        <name>comienzo</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -5.852069,43.354515,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokemon</name>
+        <styleUrl>#line-FF0000-4000-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -5.852069,43.354515,319
+            -5.852074,43.35446,322
+            -5.852042,43.354504,323
+            -5.852072,43.35457,323
+            -5.852007,43.354595,319
+            -5.851951,43.35462,319
+            -5.851917,43.35466,319
+            -5.851852,43.354694,320
+            -5.851789,43.35471,323
+            -5.851747,43.354763,319
+            -5.851684,43.35479,319
+            -5.85164,43.354828,320
+            -5.851582,43.35485,321
+            -5.851522,43.354862,321
+            -5.851459,43.354908,322
+            -5.851428,43.354954,321
+            -5.851366,43.354973,322
+            -5.851315,43.355,319
+            -5.851279,43.35496,315.9
+            -5.851262,43.355022,315.6
+            -5.851249,43.355072,0
+            -5.851221,43.355114,0
+            -5.8513,43.355076,323
+            -5.851346,43.35511,320
+            -5.851303,43.35518,320
+            -5.851232,43.35523,320
+            -5.851214,43.355274,319
+            -5.851188,43.35533,320
+            -5.851174,43.35539,320
+            -5.851188,43.35544,321
+            -5.85115,43.355476,323
+            -5.851106,43.355515,321
+            -5.851059,43.355556,317
+            -5.850974,43.35559,318
+            -5.850936,43.35563,318
+            -5.850907,43.355686,317
+            -5.850892,43.355732,316
+            -5.850822,43.355713,312
+            -5.850795,43.35576,312
+            -5.85078,43.355816,313
+            -5.850751,43.35587,312
+            -5.850751,43.35592,314
+            -5.850765,43.35596,315
+            -5.850755,43.356007,317
+            -5.85075,43.356068,321
+            -5.850805,43.356087,323
+            -5.850867,43.356083,324
+            -5.850933,43.35608,322
+            -5.851004,43.356102,323
+            -5.85104,43.35615,323
+            -5.850988,43.35618,308.8
+            -5.850927,43.35619,308.9
+            -5.850869,43.356216,308.9
+            -5.850879,43.356266,308.9
+            -5.850935,43.356316,308.9
+            -5.850969,43.35637,308.9
+            -5.850996,43.356415,308.9
+            -5.851078,43.35651,309
+            -5.85112,43.356552,309
+            -5.851147,43.3566,309
+            -5.85119,43.35665,309
+            -5.851194,43.356697,309
+            -5.851183,43.356747,327
+            -5.851172,43.356804,327
+            -5.851237,43.3569,325
+            -5.851297,43.356945,323
+            -5.851356,43.357124,316
+            -5.851291,43.357162,315
+            -5.85124,43.357204,316
+            -5.851203,43.357243,310
+            -5.851246,43.35728,318
+            -5.851306,43.357296,319
+            -5.851342,43.357334,321
+            -5.851371,43.35739,321
+            -5.851404,43.357433,321
+            -5.851467,43.35746,322
+            -5.85153,43.357487,323
+            -5.851575,43.357525,322
+            -5.851626,43.35758,322
+            -5.851682,43.357605,324
+            -5.851761,43.357624,324
+            -5.851833,43.357635,324
+            -5.8519,43.357643,324
+            -5.851972,43.35763,325
+            -5.852036,43.357674,330
+            -5.852121,43.35768,326
+            -5.852153,43.35764,324
+            -5.852198,43.357677,318
+            -5.852266,43.35769,317
+            -5.852336,43.357716,317
+            -5.852401,43.35772,317
+            -5.852491,43.357746,318
+            -5.852568,43.357754,316
+            -5.852675,43.35773,318
+            -5.852744,43.35771,318
+            -5.852812,43.357697,316
+            -5.852864,43.357735,318
+            -5.852922,43.357765,314
+            -5.853014,43.35776,313
+            -5.853073,43.357746,313
+            -5.853117,43.3577,310
+            -5.853165,43.35766,310
+            -5.853202,43.357616,309
+            -5.853258,43.35759,310
+            -5.853317,43.35758,315
+            -5.853347,43.35753,309
+            -5.853371,43.357487,308
+            -5.853416,43.357445,312
+            -5.85342,43.35738,312
+            -5.853489,43.357327,312
+            -5.853551,43.3573,313
+            -5.853624,43.35725,313
+            -5.85367,43.357197,309
+            -5.853726,43.357162,310
+            -5.853792,43.357162,311
+            -5.853872,43.35718,312
+            -5.853946,43.357204,314
+            -5.854005,43.35722,313
+            -5.854063,43.357246,312
+            -5.854094,43.357296,310
+            -5.854108,43.357353,306
+            -5.854147,43.35739,306
+            -5.854175,43.357433,307
+            -5.854214,43.35747,307
+            -5.85425,43.357513,305
+            -5.854322,43.35753,306
+            -5.854402,43.357536,304
+            -5.854499,43.357533,302
+            -5.854566,43.357533,305
+            -5.854627,43.35754,305
+            -5.854709,43.357525,305
+            -5.854779,43.35752,304
+            -5.854855,43.35751,306
+            -5.854918,43.35753,307
+            -5.854987,43.357533,305
+            -5.855056,43.357536,304
+            -5.855122,43.357544,304
+            -5.855209,43.35755,303
+            -5.85528,43.357533,305
+            -5.855354,43.357506,304
+            -5.855428,43.357487,304
+            -5.855473,43.357456,306
+            -5.855517,43.3575,309
+            -5.855576,43.357548,312
+            -5.855613,43.35759,313
+            -5.855602,43.357643,313
+            -5.855581,43.357704,313
+            -5.855644,43.357746,310
+            -5.855714,43.357754,309
+            -5.855731,43.357796,313
+            -5.855712,43.357857,311
+            -5.855665,43.35789,307
+            -5.855599,43.35792,311
+            -5.85567,43.357933,307
+            -5.855735,43.35792,304
+            -5.855792,43.3579,304
+            -5.855851,43.357864,303
+            -5.855912,43.357857,302
+            -5.855977,43.35786,303
+            -5.856045,43.35786,304
+            -5.856113,43.357872,306
+            -5.856178,43.357887,305
+            -5.856256,43.357887,304
+            -5.856324,43.357876,307
+            -5.856442,43.357876,310
+            -5.856496,43.357906,305
+            -5.856626,43.357952,306
+            -5.856697,43.357952,307
+            -5.856762,43.357964,309
+            -5.856827,43.35798,311
+            -5.856906,43.358,311
+            -5.856966,43.358032,313
+            -5.857017,43.35808,313
+            -5.857066,43.358116,314
+            -5.857109,43.35815,315
+            -5.857165,43.3582,318
+            -5.8572,43.35829,319
+            -5.857223,43.358345,319
+            -5.857263,43.3584,317
+            -5.857282,43.358444,324
+            -5.857248,43.358482,318
+            -5.857214,43.358536,313
+            -5.857201,43.358593,311
+            -5.857246,43.358627,309
+            -5.857276,43.358677,313
+            -5.857335,43.35869,311
+            -5.857416,43.358696,305
+            -5.857346,43.35866,0
+            -5.857448,43.35868,299
+            -5.857834,43.358715,299
+            -5.857756,43.358696,299.3
+            -5.857818,43.358707,299.3
+            -5.85788,43.358715,297
+            -5.857941,43.358707,298
+            -5.858016,43.358696,304
+            -5.858094,43.3587,299
+            -5.858162,43.358704,299
+            -5.85824,43.3587,298
+            -5.858311,43.35869,299
+            -5.858387,43.358677,301
+            -5.858458,43.358677,302
+            -5.858521,43.358692,299
+            -5.8586,43.358704,299
+            -5.858671,43.358727,301.1
+            -5.858738,43.35872,306.3
+            -5.858908,43.358696,309
+            -5.858988,43.358654,305
+            -5.859361,43.358597,305
+            -5.859353,43.358646,305
+            -5.859366,43.358696,303.6
+            -5.859449,43.358738,302.5
+            -5.85951,43.358784,302.5
+            -5.859553,43.35883,0
+            -5.859654,43.35916,304
+            -5.859652,43.359234,303
+            -5.859737,43.35926,300
+            -5.859806,43.35928,303
+            -5.85987,43.35925,306
+            -5.85987,43.359203,304
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Fin</name>
+        <styleUrl>#icon-1899-DB4436-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -5.85987,43.359203,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
