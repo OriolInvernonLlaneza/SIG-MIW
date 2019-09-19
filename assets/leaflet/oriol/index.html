@@ -24,17 +24,17 @@
 		}).addTo(map);
 
 		function onEachFeature(feature, layer) {
-			var popupContent = "<p>Atributos:</p>";
+			let popupContent = "";
 
 			if (feature.properties) {
-				popupContent += "<p>Nombre:" + feature.properties.NOMBRE + "</p>";
-				popupContent += "<p>Clase:" + feature.properties.CLASE_VIA + "</p>";
-				popupContent += "<p>Tipo:" + feature.properties.TIPO_VIA + "</p>";
-				popupContent += "<p>Firme:" + feature.properties.FIRME_VIA + "</p>";
-				popupContent += "<p>Nº de carriles:" + feature.properties.CARRILES_VIA + "</p>";
-				popupContent += "<p>Sentido:" + feature.properties.SENTIDO_VIA + "</p>";
-				popupContent += "<p>Estado:" + feature.properties.ESTADO_VIA + "</p>";
-				popupContent += "<p>Titular:" + feature.properties.TITULAR_VIA + "</p>";
+				popupContent += feature.properties.CLASE ? "<p>Clase: " + feature.properties.CLASE + "</p>" : "";
+				popupContent += feature.properties.TIPO ? "<p>Tipo: " + feature.properties.TIPO + "</p>" : "";
+				popupContent += feature.properties.FIRME ? "<p>Firme: " + feature.properties.FIRME + "</p>" : "";
+				const carr = 1000 + parseInt(feature.properties.CARRILES);
+				popupContent += "<p>Nº de carriles: " + carr + "</p>";
+				popupContent += feature.properties.SENTIDO ? "<p>Sentido: " + feature.properties.SENTIDO + "</p>" : "";
+				popupContent += feature.properties.ESTADO ? "<p>Estado: " + feature.properties.ESTADO + "</p>" : "";
+				popupContent += feature.properties.TITULAR ? "<p>Titular: " + feature.properties.TITULAR + "</p>" : "";
 			}
 			layer.bindPopup(popupContent);
 		}
