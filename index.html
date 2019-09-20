@@ -59,13 +59,14 @@
 					<p id="uploaded"></p>
 					<p>Arrastra tus rutas o haz click (solo archivos KML o KMZ).</p>
 				</form>-->
-				<div class="upl-form">
-					<input id="fileName" type="text" name="name" maxlength="15" placeholder="Nombre (máx 15 caracteres)"/>
+				<form class="upl-form">
+					<input id="fileName" type="text" name="name" maxlength="15" 
+						placeholder="Nombre (máx 15 caracteres)"/>
 					<input id="fileUrl" type="url" name="file" placeholder="Enlace"/>
-					<button onclick="loadFile()">Añadir</button>
+					<button type='button' onclick="loadFile()">Añadir</button>
+				</form>
+				<div id="kml-list">
 				</div>
-				<ul id="kml-list" class="check-list">
-				</ul>
 			</section>
 		</div>
 	</main>

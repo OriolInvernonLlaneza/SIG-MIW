@@ -39,18 +39,22 @@ function loadFile() {
     const fileUrlInput = document.getElementById('fileUrl');
     const fileNameInput = document.getElementById('fileName');
 
-    kmlLayers.push({ kml: new google.maps.KmlLayer({
-        url: fileUrlInput.value,
-        //suppressInfoWindows: true,
-        map: map
-    }), name: fileNameInput.value});
+    if (fileUrlInput.value !== "" || fileNameInput.value !== "") {
+        kmlLayers.push({
+            kml: new google.maps.KmlLayer({
+                url: fileUrlInput.value,
+                suppressInfoWindows: true,
+                map: map
+            }), name: fileNameInput.value, url: fileUrlInput.value
+        });
 
-    document.getElementById('kml-list').innerHTML += 
-        `<li><button class="kml" onclick="deleteRoute(${kmlLayers.length-1})">
-        ${fileNameInput.value}</button></li>`;
-    
-    fileNameInput.value = "";
-    fileUrlInput.value = "";
+        document.getElementById('kml-list').innerHTML +=
+            `<button class="kml" onclick="deleteRoute(${kmlLayers.length - 1})">
+        ${fileNameInput.value}</button>`;
+
+        fileNameInput.value = "";
+        fileUrlInput.value = "";
+    }
 }
 
 function deleteRoute(index) {
@@ -60,16 +64,16 @@ function deleteRoute(index) {
     const list = document.getElementById('kml-list');
     list.innerHTML = "";
     for (const [i, l] of kmlLayers.entries()) {
-        list.innerHTML += 
-        `<li><button class="kml" onclick="deleteRoute(${i})">
-        ${l.name}</button></li>`;
+        list.innerHTML +=
+            `<button class="kml" onclick="deleteRoute(${i})">
+        ${l.name}</button>`;
     }
 }
 
 function validFileType(file) {
     const name = file.name.split('.');
     const extension = name[name.length - 1];
-    return  extension  === 'kml' ||  extension === 'kmz';
+    return extension === 'kml' || extension === 'kmz';
 }
 
 function initialize() {
@@ -81,13 +85,22 @@ function initialize() {
     };
     map = new google.maps.Map(document.getElementById("map_canvas"), misOpciones);
 
-    const overlayOptions =
-    {
+    const overlayOptions = {
         getTileUrl: TileWMS,
         tileSize: new google.maps.Size(256, 256)
     };
     const overlayWMS = new google.maps.ImageMapType(overlayOptions);
     map.overlayMapTypes.push(overlayWMS);
+
+    const aux = [];
+    kmlLayers.forEach(l => aux.push({
+        kml: new google.maps.KmlLayer({
+            url: l.url,
+            suppressInfoWindows: true,
+            map: map
+        }), name: l.name, url: l.url
+    }));
+    kmlLayers = aux;
 }
 
 function check(cb) {
