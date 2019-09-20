@@ -57,8 +57,8 @@
 			</section>
 			<section class="upload">
 				<h2>Sube tu ruta</h2>
-				<form class="upl-zone" action="uploadKML" method="POST">
-					<input type="file" multiple accept=".KML" name="myroute">
+				<form id="upl-form" class="upl-zone" onchange="loadRoutes()">
+					<input type="file" multiple accept=".KML" id="myroutes" name="myroutes">
 					<p>Arrastra tus rutas o haz click (solo archivos KML).</p>
 				</form>
 			</section>

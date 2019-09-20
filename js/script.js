@@ -1,3 +1,13 @@
+
+function loadRoutes() {
+    loadedRoutes = [];
+    const uplForm = document.getElementById('upl-form');
+
+    for (route in uplForm.myroutes) {
+        loadedRoutes.push(route);
+    }
+}
+
 function initialize() {
     const gijon = new google.maps.LatLng(43.540935, -5.673168);
     const misOpciones = {
