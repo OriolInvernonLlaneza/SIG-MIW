@@ -1,4 +1,5 @@
 const contador = 1;
+const zoom = 12;
 const selected_marker = null;
 const WMS_URL = 'http://ide.gijon.es:8080/geoserver/wms?';
 let WMS_Layers = '';//'Gijon:Rios,Gijon:LU_Zona_Verde,Gijon:Rutas_Verdes,Gijon:Zona_Verde,Gijon:Playas,Gijon:Instalaciones_Deportivas,Gijon:Colegios_Electorales';

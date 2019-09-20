@@ -1,17 +1,35 @@
+kmls = [];
 
-function loadRoutes() {
+const routesInput = document.getElementById('myroutes');
+routesInput.addEventListener('change', () => {
     loadedRoutes = [];
-    const uplForm = document.getElementById('upl-form');
-
-    for (route in uplForm.myroutes) {
-        loadedRoutes.push(route);
+    let uploaded = "Subido/s: ";
+    for (let i = 0; i < routesInput.files.length; i++) {
+        const route = routesInput.files[i];
+        if(validFileType(route)) {
+            loadedRoutes.push(route);
+            uploaded += i < routesInput.files.length-1 ? route.name + ", " : route.name + ".";
+        }
     }
+    document.getElementById("uploaded").innerText = uploaded;
+    
+    /*kmls = [];
+    loadedRoutes.forEach((file => {
+        kmls.push(new google.maps.KmlLayer(file, {
+            map: map
+        }));
+    }));*/
+});
+
+function validFileType(file) {
+    const name = file.name.split('.');
+    return name[name.length-1] === 'kml';
 }
 
 function initialize() {
     const gijon = new google.maps.LatLng(43.540935, -5.673168);
     const misOpciones = {
-        zoom: 13,
+        zoom: zoom,
         center: gijon,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
