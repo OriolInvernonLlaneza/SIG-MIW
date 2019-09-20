@@ -1,4 +1,5 @@
 /*topnav*/
+
 nav {
     background-color: #333;
     top: 0;
@@ -56,13 +57,155 @@ nav {
 /** body - main **/
 
 body {
-    background-color: rgb(245, 245, 220);
+    background: linear-gradient(to right, #FFFFFF, #FFEFBA);
     color: black;
     margin: 0;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 main {
     margin: 2em;
     margin-top: 4em;
+}
+
+/** map **/
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "map controls";
+    grid-gap: 2em;
+    height: 85vh;
+}
+
+.map {
+    grid-area: "map";
+    height: 85vh;
+}
+
+/** controls **/
+
+.controls {
+    grid-area: "controls";
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: auto;
+    grid-template-areas: "wms" "upload";
+}
+
+.wms {
+    grid-area: "wms";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/** checkboxes **/
+
+.check-list {
+    list-style: none;
+    padding: 20px;
+    margin-top: 0;
+}
+
+.check-list li {
+    display: inline;
+}
+
+.check-list li label {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(54, 54, 54, 0.3);
+    color: #2b2b2b;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    user-select: none;
+    transition: all .2s;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.check-list li label::before {
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+}
+
+.check-list li input[type="checkbox"]:checked+label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+.check-list li input[type="checkbox"]:checked+label {
+    border: 2px solid #1bdbf8;
+    background-color: #12bbd4;
+    color: #fff;
+    transition: all .2s;
+}
+
+.check-list li input[type="checkbox"] {
+    display: absolute;
+    position: absolute;
+    opacity: 0;
+}
+
+.check-list li input[type="checkbox"]:focus+label {
+    border: 2px solid #e9a1ff;
+}
+
+/** upload **/
+
+.upload {
+    grid-area: "upload";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload h2 {
+    margin-top: 0;
+}
+
+.upl-zone {
+    position: relative;
+    background-color: rgb(228, 192, 115, 0.3);
+    width: 100%;
+    height: 100%;
+    border: 4px dashed #fff;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.upl-zone input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.upl-zone p {
+    text-align: center;
+    color: #2b2b2b;
+    vertical-align: middle;
 }
