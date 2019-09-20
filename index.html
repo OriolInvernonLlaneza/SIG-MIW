@@ -48,17 +48,22 @@
 						<input type="checkbox" id="POIs"
 							value="Gijon:Colegios_Electorales,Gijon:Instalaciones_Deportivas" onclick="check(this);"
 							class="checkbox" />
-						<label for="POIs">Colegios y pistas deportivas
+						<label for="POIs">Colegios y pistas deportivas</label>
 					</li>
 				</ul>
 			</section>
 			<section class="upload">
 				<h2>Sube tu ruta</h2>
-				<form class="upl-zone">
-					<input id="myroutes" type="file" multiple accept=".KML">
+				<!--<form class="upl-zone">
+					<input id="myroutes" type="file" multiple accept=".KML,.KMZ">
 					<p id="uploaded"></p>
-					<p>Arrastra tus rutas o haz click (solo archivos KML).</p>
-				</form>
+					<p>Arrastra tus rutas o haz click (solo archivos KML o KMZ).</p>
+				</form>-->
+				<input id="fileName" type="text" name="name" maxlength="15" placeholder="Nombre (máx 15 caracteres)"/>
+				<input id="fileUrl" type="url" name="file"/>
+				<button onclick="loadFile()">Añadir</button>
+				<ul id="kml-list" class="check-list">
+				</ul>
 			</section>
 		</div>
 	</main>

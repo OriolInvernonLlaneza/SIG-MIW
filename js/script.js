@@ -1,29 +1,75 @@
-kmls = [];
+//let kmls = [];
+//let loadedRoutes = [];
 
-const routesInput = document.getElementById('myroutes');
-routesInput.addEventListener('change', () => {
+/**const routesInput = document.getElementById('myroutes');
+routesInput.addEventListener('change', (e) => {
+    e.preventDefault();
     loadedRoutes = [];
+    kmls = [];
+    kmlLayers = [];
+
     let uploaded = "Subido/s: ";
     for (let i = 0; i < routesInput.files.length; i++) {
         const route = routesInput.files[i];
-        if(validFileType(route)) {
+        if (validFileType(route)) {
             loadedRoutes.push(route);
-            uploaded += i < routesInput.files.length-1 ? route.name + ", " : route.name + ".";
+            uploaded += i < routesInput.files.length - 1 ? route.name + ", " : route.name + ".";
+        } else {
+            alert('Por favor, asegúrese de que el archivo está en formato KML o KMZ.')
         }
     }
     document.getElementById("uploaded").innerText = uploaded;
+
+    const reader = new FileReader();
+    reader.onloadend = kml => {
+        if (kml.target.readyState == FileReader.DONE) {
+            kmlLayers.push(new google.maps.KmlLayer({
+                url: kml.target.result,
+                //suppressInfoWindows: true,
+                map: map
+            }));
+        } else {
+            alert('Se ha producido un error leyendo el fichero.');
+        }
+    };
+    loadedRoutes.forEach(f => reader.readAsDataURL(f));
+});**/
+
+function loadFile() {
+    const fileUrlInput = document.getElementById('fileUrl');
+    const fileNameInput = document.getElementById('fileName');
+
+    kmlLayers.push({ kml: new google.maps.KmlLayer({
+        url: fileUrlInput.value,
+        //suppressInfoWindows: true,
+        map: map
+    }), name: fileNameInput.value});
+
+    document.getElementById('kml-list').innerHTML += 
+        `<li><button class="kml" onclick="deleteRoute(${kmlLayers.length-1})">
+        ${fileNameInput.value}</button></li>`;
     
-    /*kmls = [];
-    loadedRoutes.forEach((file => {
-        kmls.push(new google.maps.KmlLayer(file, {
-            map: map
-        }));
-    }));*/
-});
+    fileNameInput.value = "";
+    fileUrlInput.value = "";
+}
+
+function deleteRoute(index) {
+    kmlLayers[index].kml.setMap(null);
+    kmlLayers.splice(index, 1);
+
+    const list = document.getElementById('kml-list');
+    list.innerHTML = "";
+    for (const [i, l] of kmlLayers.entries()) {
+        list.innerHTML += 
+        `<li><button class="kml" onclick="deleteRoute(${i})">
+        ${l.name}</button></li>`;
+    }
+}
 
 function validFileType(file) {
     const name = file.name.split('.');
-    return name[name.length-1] === 'kml';
+    const extension = name[name.length - 1];
+    return  extension  === 'kml' ||  extension === 'kmz';
 }
 
 function initialize() {

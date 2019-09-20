@@ -17,5 +17,4 @@ const TileWMS = function (coord, zoom) {
     myURL += "&BBOX=" + bbox;
     return myURL;
 }
-
-let loadedRoutes;
+let kmlLayers = [];
