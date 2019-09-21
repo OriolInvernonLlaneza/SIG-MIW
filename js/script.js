@@ -177,3 +177,10 @@ function validURL(str) {
         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
     return !!pattern.test(str);
 }
+
+let directionsService;
+let directionsRenderer;
+function startDrawing() {
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer();
+}
