@@ -101,6 +101,10 @@ main {
     align-items: center;
 }
 
+.wms h2 {
+    margin-bottom: 0;
+}
+
 /** checkboxes **/
 
 .check-list {
