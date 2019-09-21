@@ -35,18 +35,36 @@ routesInput.addEventListener('change', (e) => {
     loadedRoutes.forEach(f => reader.readAsDataURL(f));
 });**/
 
+/**
+ * Loads a KML layer from a given url.
+ * Prepares streetview activation when user clicks a marker.
+ * Updates the layer list.
+ */
 function loadFile() {
     const fileUrlInput = document.getElementById('fileUrl');
     const fileNameInput = document.getElementById('fileName');
 
     if (fileUrlInput.value !== "" && fileNameInput.value !== "" && validURL(fileUrlInput.value)) {
-        kmlLayers.push({
-            kml: new google.maps.KmlLayer({
-                url: fileUrlInput.value,
-                suppressInfoWindows: true,
-                map: map
-            }), name: fileNameInput.value, url: fileUrlInput.value
+        const aux = new google.maps.KmlLayer({
+            url: fileUrlInput.value,
+            suppressInfoWindows: true,
+            map: map
         });
+        aux.addListener('click', (event) => {
+            if (event.pixelOffset.height !== 0) { // Fix marrullero
+                const pano = map.getStreetView();
+                pano.setPosition(event.latLng);
+                pano.setPov({ heading: 0, pitch: 0 });
+                pano.setOptions({
+                    linksControl: false,
+                    zoomControl: false,
+                    clickToGo: false
+                });
+                pano.setVisible(true);
+            }
+        });
+
+        kmlLayers.push({ kml: aux, name: fileNameInput.value, url: fileUrlInput.value });
 
         document.getElementById('kml-list').innerHTML +=
             `<button class="kml" onclick="deleteRoute(${kmlLayers.length - 1})">
@@ -57,6 +75,10 @@ function loadFile() {
     }
 }
 
+/**
+ * Removes the chosen KML layer and updates the list.
+ * @param {*} index of th ekml to be deleted.
+ */
 function deleteRoute(index) {
     kmlLayers[index].kml.setMap(null);
     kmlLayers.splice(index, 1);
@@ -70,12 +92,21 @@ function deleteRoute(index) {
     }
 }
 
+/**
+ * Checks that the received file is a KML or KMZ
+ * @deprecated
+ * @param {*} file 
+ */
 function validFileType(file) {
     const name = file.name.split('.');
     const extension = name[name.length - 1];
     return extension === 'kml' || extension === 'kmz';
 }
 
+/**
+ * Initializes the map with the starting options and the chosen WMS tiles.
+ * Also reloads any KML layer that was added previously.
+ */
 function initialize() {
     const gijon = new google.maps.LatLng(43.540935, -5.673168);
     const misOpciones = {
@@ -93,13 +124,27 @@ function initialize() {
     map.overlayMapTypes.push(overlayWMS);
 
     const aux = [];
-    kmlLayers.forEach(l => aux.push({
-        kml: new google.maps.KmlLayer({
+    kmlLayers.forEach(l => {
+        const lay = new google.maps.KmlLayer({
             url: l.url,
             suppressInfoWindows: true,
             map: map
-        }), name: l.name, url: l.url
-    }));
+        });
+        lay.addListener('click', (event) => {
+            if (event.pixelOffset.height !== 0) { // Fix marrullero
+                const pano = map.getStreetView();
+                pano.setPosition(event.latLng);
+                pano.setPov({ heading: 0, pitch: 0 });
+                pano.setOptions({
+                    linksControl: false,
+                    zoomControl: false,
+                    clickToGo: false
+                });
+                pano.setVisible(true);
+            }
+        });
+        aux.push({ kml: lay, name: l.name, url: l.url });
+    });
     kmlLayers = aux;
 }
 
@@ -123,7 +168,7 @@ function check(cb) {
 }
 
 // https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
-function validURL(str) { 
+function validURL(str) {
     const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
