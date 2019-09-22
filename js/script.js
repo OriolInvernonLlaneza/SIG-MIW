@@ -2,7 +2,7 @@
 //let loadedRoutes = [];
 
 /**const routesInput = document.getElementById('myroutes');
-routesInput.addEventListener('change', (e) => {
+ routesInput.addEventListener('change', (e) => {
     e.preventDefault();
     loadedRoutes = [];
     kmls = [];
@@ -54,7 +54,7 @@ function loadFile() {
             if (event.pixelOffset.height !== 0) { // Fix marrullero
                 const pano = map.getStreetView();
                 pano.setPosition(event.latLng);
-                pano.setPov({ heading: 0, pitch: 0 });
+                pano.setPov({heading: 0, pitch: 0});
                 pano.setOptions({
                     linksControl: false,
                     zoomControl: false,
@@ -64,7 +64,7 @@ function loadFile() {
             }
         });
 
-        kmlLayers.push({ kml: aux, name: fileNameInput.value, url: fileUrlInput.value });
+        kmlLayers.push({kml: aux, name: fileNameInput.value, url: fileUrlInput.value});
 
         document.getElementById('kml-list').innerHTML +=
             `<button class="kml" onclick="deleteRoute(${kmlLayers.length - 1})">
@@ -95,7 +95,7 @@ function deleteRoute(index) {
 /**
  * Checks that the received file is a KML or KMZ
  * @deprecated
- * @param {*} file 
+ * @param {*} file
  */
 function validFileType(file) {
     const name = file.name.split('.');
@@ -116,6 +116,12 @@ function initialize() {
     };
     map = new google.maps.Map(document.getElementById("map_canvas"), misOpciones);
 
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer({
+        draggable: true,
+        map: map,
+        panel: document.getElementById('directions-panel')
+    });
     const overlayOptions = {
         getTileUrl: TileWMS,
         tileSize: new google.maps.Size(256, 256)
@@ -134,7 +140,7 @@ function initialize() {
             if (event.pixelOffset.height !== 0) { // Fix marrullero
                 const pano = map.getStreetView();
                 pano.setPosition(event.latLng);
-                pano.setPov({ heading: 0, pitch: 0 });
+                pano.setPov({heading: 0, pitch: 0});
                 pano.setOptions({
                     linksControl: false,
                     zoomControl: false,
@@ -143,7 +149,7 @@ function initialize() {
                 pano.setVisible(true);
             }
         });
-        aux.push({ kml: lay, name: l.name, url: l.url });
+        aux.push({kml: lay, name: l.name, url: l.url});
     });
     kmlLayers = aux;
 }
@@ -178,9 +184,79 @@ function validURL(str) {
     return !!pattern.test(str);
 }
 
-let directionsService;
-let directionsRenderer;
+
+let newMarker;
+let markers = [];
+let waypts = [];
+let routesListener;
+
 function startDrawing() {
-    directionsService = new google.maps.DirectionsService();
-    directionsRenderer = new google.maps.DirectionsRenderer();
+    document.getElementById("finish_route").style.display = "block";
+    console.log("Its me");
+    routesListener = google.maps.event.addListener(map, 'click', (event) => {
+        newMarker = new google.maps.Marker({position: event.latLng, map: map});
+        console.log("Latlng: " + event.latLng);
+        markers.push(newMarker);
+        if (markers.length > 2) {
+            waypts.push({
+                location: markers[markers.length - 2].position,
+                stopover: true
+            });
+        }
+
+    });
+}
+
+
+function displayRoute(origin, destination, service, display) {
+    service.route({
+        origin: origin,
+        destination: destination,
+        waypoints: waypts,
+        travelMode: 'WALKING',
+        avoidTolls: true
+    }, function (response, status) {
+        if (status === 'OK') {
+            console.log("All OK")
+            directionsRenderer.setDirections(response);
+            waypts = [];
+            let route = response.routes[0];
+            console.log(route);
+            let duration = 0;
+            for (l of route.legs){
+                duration += l.duration.value;
+            }
+            // transform the duration in minutes
+            duration= duration/60;
+            // For each route, display summary information.
+            document.getElementById("duration_route").innerText = Math.round(duration) + " Minutos";
+            
+        } else {
+            alert('Could not display directions due to: ' + status);
+        }
+    });
+}
+
+function finishRoute() {
+    document.getElementById("finish_route").style.display = "none";
+    displayRoute(markers[0].position, markers[markers.length - 1].position, directionsService,
+        directionsRenderer);
+    deleteMarkers();
+    google.maps.event.removeListener(routesListener);
+
+}
+
+function clearRoute(){
+    deleteMarkers();
+    directionsRenderer.setDirections({routes: []});
+    google.maps.event.removeListener(routesListener);
+
+}
+
+function deleteMarkers(){
+    for (m of markers){
+        m.setMap(null);
+    }
+    markers = [];
+    waypts = [];
 }
