@@ -203,7 +203,11 @@ let routesListener;
 
 function startDrawing() {
     document.getElementById("finish_route").classList.toggle('occult');
+    document.getElementById("kml_btn").classList.add('occult');
     document.getElementById("create_btn").classList.toggle('occult');
+
+    kmlmarkers=[];
+    polylines=[];
 
     routesListener = google.maps.event.addListener(map, 'click', (event) => {
         newMarker = new google.maps.Marker({ position: event.latLng, map: map });
@@ -299,6 +303,9 @@ function clearRoute() {
     document.getElementById("create_btn").classList.remove('occult');
     document.getElementById("duration_route").innerText = "";
 
+    kmlmarkers=[];
+    polylines=[];
+
     deleteMarkers();
     directionsRenderer.setMap(null); // clear direction from the map
     directionsRenderer.setPanel(null); // clear directionpanel from the map          
@@ -390,20 +397,22 @@ function toKML() {
    if(markercheck && stringcheck)
             {
                   xw.writeEndDocument();
+                  
         
             let kml = xw.flush(); //generate the kml string
             xw.close();//clean the writer
         
-            console.log(kml)
+            
+            toDownload(kml);
             }
 
 
 }
 
-/*
+
 function toDownload(file)
 {
-  let  type= "text/plain";
+  let  type= "text/xml";
  // Create an invisible A element
   const a = document.createElement("a");
   a.style.display = "none";
@@ -411,11 +420,11 @@ function toDownload(file)
 
   // Set the HREF to a Blob representation of the data to be downloaded
   a.href = window.URL.createObjectURL(
-    new Blob([data], { type })
+    new Blob([file], { type })
   );
 
   // Use download attribute to set set desired file name
-  a.setAttribute("download", "CreatedKML");
+  a.setAttribute("download", "Ruta.kml");
 
   // Trigger the download by simulating click
   a.click();
@@ -424,4 +433,4 @@ function toDownload(file)
   window.URL.revokeObjectURL(a.href);
   document.body.removeChild(a);
 
-}*/
+}
