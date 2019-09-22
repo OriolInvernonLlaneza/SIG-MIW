@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2%22%3E
+  <Document>
+    <Placemark>
+      <name>0</name>
+      <description>Parte 0</description>
+      <Point>
+        <extrude>1</extrude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <coordinates>-5.716539319770845,43.53005768262473,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>1</name>
+      <description>Parte 1</description>
+      <Point>
+        <extrude>1</extrude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <coordinates>-5.6758929182692555,43.52536748163609,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>2</name>
+      <description>Parte 2</description>
+      <Point>
+        <extrude>1</extrude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <coordinates>-5.642088171264618,43.52881294882661,0</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

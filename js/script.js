@@ -248,7 +248,7 @@ function finishRoute() {
 
     if (markers.length > 1) {
         displayRoute(markers[0].position, markers[markers.length - 1].position, directionsService,
-        directionsRenderer);
+            directionsRenderer);
     }
 
     deleteMarkers();
@@ -277,3 +277,72 @@ function showDirections() {
     const dirWindow = window.open();
     dirWindow.document.write(document.getElementById("directions-panel").innerHTML);
 }
+
+function toKML() {
+
+    let xw = new XMLWriter('UTF-8');
+    xw.formatting = 'indented';//add indentation and newlines
+    xw.indentChar = ' ';//indent with spaces
+    xw.indentation = 2;//add 2 spaces per level
+
+    xw.writeStartDocument();
+    xw.writeStartElement('kml');
+    xw.writeAttributeString("xmlns", "http://www.opengis.net/kml/2.2");
+    xw.writeStartElement('Document');
+
+    for(let i = 0; i < markers.length; i++ )
+    {
+        xw.writeStartElement('Placemark');
+            //name
+            xw.writeStartElement('name');
+            xw.writeCDATA( i.toString() );
+            xw.writeEndElement();
+            //description
+            xw.writeStartElement('description');
+            xw.writeCDATA("Parte " +i.toString());
+            xw.writeEndElement();
+            //point and coordinates
+            xw.writeStartElement('Point');
+            xw.writeElementString('extrude', '1');
+            xw.writeElementString('altitudeMode', 'relativeToGround');
+            console.log(markers[i])
+            xw.writeElementString('coordinates', markers[i].position.lng().toString()+","+markers[i].position.lat().toString()+",0");
+            xw.writeEndElement();
+            xw.writeEndElement();
+    }
+
+    xw.writeEndDocument();
+
+    let kml = xw.flush(); //generate the kml string
+    xw.close();//clean the writer
+
+    console.log(kml)
+
+
+}
+
+/*
+function toDownload(file)
+{
+  let  type= "text/plain";
+ // Create an invisible A element
+  const a = document.createElement("a");
+  a.style.display = "none";
+  document.body.appendChild(a);
+
+  // Set the HREF to a Blob representation of the data to be downloaded
+  a.href = window.URL.createObjectURL(
+    new Blob([data], { type })
+  );
+
+  // Use download attribute to set set desired file name
+  a.setAttribute("download", "CreatedKML");
+
+  // Trigger the download by simulating click
+  a.click();
+
+  // Cleanup
+  window.URL.revokeObjectURL(a.href);
+  document.body.removeChild(a);
+
+}*/
