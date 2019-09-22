@@ -126,6 +126,11 @@ function initialize() {
         map: map,
         panel: document.getElementById('directions-panel')
     });
+
+    if (typeof directions !== "undefined" && directions !== null){
+        directionsRenderer.setDirections(directions);
+    }
+
     const overlayOptions = {
         getTileUrl: TileWMS,
         tileSize: new google.maps.Size(256, 256)
@@ -224,6 +229,7 @@ function displayRoute(origin, destination, service, display) {
         if (status === 'OK') {
             console.log("All OK")
             directionsRenderer.setDirections(response);
+            directions = response;
             waypts = [];
             let route = response.routes[0];
             console.log(route);
@@ -261,7 +267,11 @@ function clearRoute() {
     document.getElementById("duration_route").innerText = "";
 
     deleteMarkers();
-    directionsRenderer.setDirections({ routes: [] });
+    directionsRenderer.setMap(null); // clear direction from the map
+    directionsRenderer.setPanel(null); // clear directionpanel from the map          
+    directionsRenderer = new google.maps.DirectionsRenderer(); // this is to render again, otherwise your route wont show for the second time searching
+    directionsRenderer.setMap(map); //this is to set up again
+    directions = null;
     google.maps.event.removeListener(routesListener);
 }
 
