@@ -54,7 +54,7 @@ function loadFile() {
             if (event.pixelOffset.height !== 0) { // Fix marrullero
                 const pano = map.getStreetView();
                 pano.setPosition(event.latLng);
-                pano.setPov({heading: 0, pitch: 0});
+                pano.setPov({ heading: 0, pitch: 0 });
                 pano.setOptions({
                     linksControl: false,
                     zoomControl: false,
@@ -64,7 +64,7 @@ function loadFile() {
             }
         });
 
-        kmlLayers.push({kml: aux, name: fileNameInput.value, url: fileUrlInput.value});
+        kmlLayers.push({ kml: aux, name: fileNameInput.value, url: fileUrlInput.value });
 
         document.getElementById('kml-list').innerHTML +=
             `<button class="kml" onclick="deleteRoute(${kmlLayers.length - 1})">
@@ -112,7 +112,11 @@ function initialize() {
     const misOpciones = {
         zoom: zoom,
         center: gijon,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true,
+        zoomControl: true,
+        mapTypeControl: true,
+        fullscreenControl: true
     };
     map = new google.maps.Map(document.getElementById("map_canvas"), misOpciones);
 
@@ -140,7 +144,7 @@ function initialize() {
             if (event.pixelOffset.height !== 0) { // Fix marrullero
                 const pano = map.getStreetView();
                 pano.setPosition(event.latLng);
-                pano.setPov({heading: 0, pitch: 0});
+                pano.setPov({ heading: 0, pitch: 0 });
                 pano.setOptions({
                     linksControl: false,
                     zoomControl: false,
@@ -149,7 +153,7 @@ function initialize() {
                 pano.setVisible(true);
             }
         });
-        aux.push({kml: lay, name: l.name, url: l.url});
+        aux.push({ kml: lay, name: l.name, url: l.url });
     });
     kmlLayers = aux;
 }
@@ -191,10 +195,11 @@ let waypts = [];
 let routesListener;
 
 function startDrawing() {
-    document.getElementById("finish_route").style.display = "block";
-    console.log("Its me");
+    document.getElementById("finish_route").classList.toggle('occult');
+    document.getElementById("create_btn").classList.toggle('occult');
+
     routesListener = google.maps.event.addListener(map, 'click', (event) => {
-        newMarker = new google.maps.Marker({position: event.latLng, map: map});
+        newMarker = new google.maps.Marker({ position: event.latLng, map: map });
         console.log("Latlng: " + event.latLng);
         markers.push(newMarker);
         if (markers.length > 2) {
@@ -223,14 +228,14 @@ function displayRoute(origin, destination, service, display) {
             let route = response.routes[0];
             console.log(route);
             let duration = 0;
-            for (l of route.legs){
+            for (l of route.legs) {
                 duration += l.duration.value;
             }
             // transform the duration in minutes
-            duration= duration/60;
+            duration = duration / 60;
             // For each route, display summary information.
-            document.getElementById("duration_route").innerText = Math.round(duration) + " Minutos";
-            
+            document.getElementById("duration_route").innerText = `Duración: ${Math.round(duration)} min`;
+
         } else {
             alert('Could not display directions due to: ' + status);
         }
@@ -238,25 +243,37 @@ function displayRoute(origin, destination, service, display) {
 }
 
 function finishRoute() {
-    document.getElementById("finish_route").style.display = "none";
-    displayRoute(markers[0].position, markers[markers.length - 1].position, directionsService,
+    document.getElementById("finish_route").classList.toggle('occult');
+    document.getElementById("create_btn").classList.toggle('occult');
+
+    if (markers.length > 1) {
+        displayRoute(markers[0].position, markers[markers.length - 1].position, directionsService,
         directionsRenderer);
+    }
+
     deleteMarkers();
     google.maps.event.removeListener(routesListener);
-
 }
 
-function clearRoute(){
+function clearRoute() {
+    document.getElementById("finish_route").classList.add('occult');
+    document.getElementById("create_btn").classList.remove('occult');
+    document.getElementById("duration_route").innerText = "";
+
     deleteMarkers();
-    directionsRenderer.setDirections({routes: []});
+    directionsRenderer.setDirections({ routes: [] });
     google.maps.event.removeListener(routesListener);
-
 }
 
-function deleteMarkers(){
-    for (m of markers){
+function deleteMarkers() {
+    for (m of markers) {
         m.setMap(null);
     }
     markers = [];
     waypts = [];
+}
+
+function showDirections() {
+    const dirWindow = window.open();
+    dirWindow.document.write(document.getElementById("directions-panel").innerHTML);
 }

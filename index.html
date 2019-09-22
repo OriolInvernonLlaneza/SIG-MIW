@@ -63,7 +63,7 @@
 					<input id="fileName" type="text" name="name" maxlength="15" 
 						placeholder="Nombre (máx 15 caracteres)"/>
 					<input id="fileUrl" type="url" name="file" placeholder="Enlace"/>
-					<button type='button' onclick="loadFile()">Añadir</button>
+					<button type="button" onclick="loadFile()">Añadir</button>
 				</form>
 				<div id="kml-list">
 				</div>
@@ -71,11 +71,11 @@
 		</div>
 		<div class="create">
 			<button id="create_btn" onclick="startDrawing()">Crear ruta</button>
+			<button id="finish_route" class="occult" onclick="finishRoute()">Finalizar ruta</button>
 			<button id="clear_btn" onclick="clearRoute()">Limpiar ruta</button>
-			<button id="finish_route" onclick="finishRoute()" style="display: none">Finalizar ruta</button>
 			<p id="duration_route"></p>
 		</div>
-		<div id="directions-panel"></div>
+		<div id="directions-panel" class="occult"></div>
 	</main>
 	<script src="js/constants.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/script.js"></script>
