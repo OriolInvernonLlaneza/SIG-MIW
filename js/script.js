@@ -195,7 +195,9 @@ function validURL(str) {
 
 
 let newMarker;
+let polylines=[];
 let markers = [];
+let kmlmarkers=[];
 let waypts = [];
 let routesListener;
 
@@ -232,11 +234,35 @@ function displayRoute(origin, destination, service, display) {
             directions = response;
             waypts = [];
             let route = response.routes[0];
-            console.log(route);
-            let duration = 0;
+            
+            let duration = 0; 
+            
             for (l of route.legs) {
                 duration += l.duration.value;
+
+            
+
             }
+
+
+            let newpoly = new google.maps.Polyline({
+                path: [],
+                strokeColor: '#FF0000',
+                strokeWeight: 3
+            });
+
+            var legs = response.routes[0].legs;
+            for (i = 0; i < legs.length; i++) {
+                var steps = legs[i].steps;
+                for (j = 0; j < steps.length; j++) {
+                    var nextSegment = steps[j].path;
+                    for (k = 0; k < nextSegment.length; k++) {
+                        newpoly.getPath().push(nextSegment[k]);
+                    }
+                }
+            }
+            console.log(newpoly);
+           polylines.push(newpoly);
             // transform the duration in minutes
             duration = duration / 60;
             // For each route, display summary information.
@@ -250,6 +276,7 @@ function displayRoute(origin, destination, service, display) {
 
 function finishRoute() {
     document.getElementById("finish_route").classList.toggle('occult');
+    document.getElementById("kml_btn").classList.remove('occult');
     document.getElementById("create_btn").classList.toggle('occult');
 
     if (markers.length > 1) {
@@ -257,12 +284,18 @@ function finishRoute() {
             directionsRenderer);
     }
 
+     //we copy the markers for the kml
+    
+     for(let i = 0; i < markers.length; i++ )
+     kmlmarkers.push(markers[i]);
+
     deleteMarkers();
     google.maps.event.removeListener(routesListener);
 }
 
 function clearRoute() {
     document.getElementById("finish_route").classList.add('occult');
+    document.getElementById("kml_btn").classList.add('occult');
     document.getElementById("create_btn").classList.remove('occult');
     document.getElementById("duration_route").innerText = "";
 
@@ -290,6 +323,9 @@ function showDirections() {
 
 function toKML() {
 
+    let stringcheck=false;
+    let markercheck=false;
+
     let xw = new XMLWriter('UTF-8');
     xw.formatting = 'indented';//add indentation and newlines
     xw.indentChar = ' ';//indent with spaces
@@ -300,7 +336,7 @@ function toKML() {
     xw.writeAttributeString("xmlns", "http://www.opengis.net/kml/2.2");
     xw.writeStartElement('Document');
 
-    for(let i = 0; i < markers.length; i++ )
+    for(let i = 0; i < kmlmarkers.length; i++ )
     {
         xw.writeStartElement('Placemark');
             //name
@@ -315,18 +351,51 @@ function toKML() {
             xw.writeStartElement('Point');
             xw.writeElementString('extrude', '1');
             xw.writeElementString('altitudeMode', 'relativeToGround');
-            console.log(markers[i])
-            xw.writeElementString('coordinates', markers[i].position.lng().toString()+","+markers[i].position.lat().toString()+",0");
+           
+            xw.writeElementString('coordinates', kmlmarkers[i].position.lng().toString()+","+kmlmarkers[i].position.lat().toString()+",0");
             xw.writeEndElement();
             xw.writeEndElement();
+            if(i==kmlmarkers.length-1)
+            {
+                console.log("check1")
+            markercheck=true;
+            }
+
+           
     }
 
-    xw.writeEndDocument();
+    for(let i = 0; i < polylines.length; i++)
+    {
+        xw.writeStartElement('Placemark');
+        xw.writeStartElement('LineString');
+                xw.writeElementString('extrude', '1');
+                xw.writeElementString('altitudeMode', 'relativeToGround');
+                xw.writeStartElement( "coordinates" );
+                console.log(polylines[i].getPath().getLength());
 
-    let kml = xw.flush(); //generate the kml string
-    xw.close();//clean the writer
+                for( var j=0; j < polylines[i].getPath().getLength(); j++ ){
+                    
+                    xw.writeString( polylines[i].getPath().getAt(j).lng().toString() + "," + polylines[i].getPath().getAt(j).lat().toString() + ",0" );
 
-    console.log(kml)
+                    if(j==polylines[i].getPath().getLength()-1)
+                    {
+                    stringcheck=true;
+                    console.log("check2")}
+                }
+                xw.writeEndElement();
+        xw.writeEndElement();
+
+    }
+
+   if(markercheck && stringcheck)
+            {
+                  xw.writeEndDocument();
+        
+            let kml = xw.flush(); //generate the kml string
+            xw.close();//clean the writer
+        
+            console.log(kml)
+            }
 
 
 }
