@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Leaflet con GeoJSON</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../../leaflet/leaflet.css" />
+	<script src="../../../leaflet/leaflet.js"></script>
+	</head>
+	<body>
+		<div id='map' style="min-height:90vh; min-width:90vw"></div>
+		<script src="geojson/geojson_creado_estaciones.js" type="text/javascript"></script>
+
+		<script>
+			/* 
+				Leaflet utiliza "L" como variable para acceder a su API
+				Instanciamos el mapa en la id "map" y lo centramos en asturias 
+			*/
+			var map = L.map('map').setView([43.363129, -5.951843], 10);
+
+			L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+					'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+					'Imagery � <a href="https://www.mapbox.com/">Mapbox</a>',
+				id: 'mapbox.light'
+			}).addTo(map);
+
+
+			/*
+			 * Añade un popup a una capa a partir de la informacion de la feature.
+			 * Cambia el color al marker en caso de que sea una estacion.
+			 * Esta funcion sera pasada como parametro para que se invoque cada vez
+			 * que se dibuje una feature en el mapa.
+			*/
+			function onEachFeature(feature, layer) {
+				
+				var greenIcon = new L.Icon({
+				  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+				  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+				  iconSize: [25, 41],
+				  iconAnchor: [12, 41],
+				  popupAnchor: [1, -34],
+				  shadowSize: [41, 41]
+				});
+				
+				var redIcon = new L.Icon({
+				  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+				  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+				  iconSize: [25, 41],
+				  iconAnchor: [12, 41],
+				  popupAnchor: [1, -34],
+				  shadowSize: [41, 41]
+				});
+
+				/*	
+					Aqu� comprobamos si la feature tiene atributos (properties), anadimos la info box y volvemos los marker verdes si son estaciones (rojos si estan fuera de servicio).
+				*/
+				if (feature.properties && feature.properties.TIPOUSO && feature.properties.NOMBRE ) {
+				
+					var popupContent = "<p> "+feature.properties.NOMBRE+"</p>";
+					popupContent += "<p>Tipo de parada: "+feature.properties.TIPO+"</p>";
+					popupContent += "<p>Tipo de uso: "+feature.properties.TIPOUSO+"</p>";
+					popupContent += "<p>Estado: "+feature.properties.ESTADO+"</p>";
+					
+					//Vinculamos el popup a la capa.
+					layer.bindPopup(popupContent);
+					
+					//damos colores dependiendo de la situcion a los markers
+					if(feature.properties.TIPO=="Estacion")
+					{
+						layer.setIcon(greenIcon);
+					}
+					
+					if(feature.properties.ESTADO!="En uso")
+					{
+						layer.setIcon(redIcon);
+					}
+				}
+				
+			}
+			
+		
+			function filtrar(feature,layer)
+			{
+				return true;
+			}
+			
+			/*
+			* Esta funci�n aplica estilo a una feature concreta.
+			* Puede accederse a los atributos de la feature para variar el estilo.
+			* Esta funci�n ser� pasada como par�metro al instanciar la capa geoJSON.
+			*/		
+			function aplicarEstilo(feature,layer)
+			{
+				
+				return {color: 'yellow', fillColor: '#000', fillOpacity: 0.5};
+				
+			}
+
+
+			/* Añadimos al mapa una capa GeoJSON con los datos de la estaciones y apeaderos.
+			*/
+			
+			L.geoJSON(resultado, {
+				filter: filtrar,
+				style: aplicarEstilo,
+				onEachFeature: onEachFeature
+			}).addTo(map);
+
+			
+			
+	
+
+		</script>
+	</body>
+</html>
