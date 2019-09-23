@@ -127,7 +127,7 @@ function initialize() {
         panel: document.getElementById('directions-panel')
     });
 
-    if (typeof directions !== "undefined" && directions !== null){
+    if (typeof directions !== "undefined" && directions !== null) {
         directionsRenderer.setDirections(directions);
     }
 
@@ -195,19 +195,20 @@ function validURL(str) {
 
 
 let newMarker;
-let polylines=[];
+let polylines = [];
 let markers = [];
-let kmlmarkers=[];
+let kmlmarkers = [];
 let waypts = [];
 let routesListener;
 
 function startDrawing() {
     document.getElementById("finish_route").classList.toggle('occult');
     document.getElementById("kml_btn").classList.add('occult');
+    document.getElementById("dir_btn").classList.add('occult');
     document.getElementById("create_btn").classList.toggle('occult');
 
-    kmlmarkers=[];
-    polylines=[];
+    kmlmarkers = [];
+    polylines = [];
 
     routesListener = google.maps.event.addListener(map, 'click', (event) => {
         newMarker = new google.maps.Marker({ position: event.latLng, map: map });
@@ -233,21 +234,16 @@ function displayRoute(origin, destination, service, display) {
         avoidTolls: true
     }, function (response, status) {
         if (status === 'OK') {
-            console.log("All OK")
             directionsRenderer.setDirections(response);
             directions = response;
             waypts = [];
             let route = response.routes[0];
-            
-            let duration = 0; 
-            
+
+            let duration = 0;
+
             for (l of route.legs) {
                 duration += l.duration.value;
-
-            
-
             }
-
 
             let newpoly = new google.maps.Polyline({
                 path: [],
@@ -266,11 +262,11 @@ function displayRoute(origin, destination, service, display) {
                 }
             }
             console.log(newpoly);
-           polylines.push(newpoly);
+            polylines.push(newpoly);
             // transform the duration in minutes
             duration = duration / 60;
             // For each route, display summary information.
-            document.getElementById("duration_route").innerText = `Duración: ${Math.round(duration)} min`;
+            document.getElementById("duration_route").innerText = `Duración estimada: ${Math.round(duration)} min`;
 
         } else {
             alert('Could not display directions due to: ' + status);
@@ -281,17 +277,17 @@ function displayRoute(origin, destination, service, display) {
 function finishRoute() {
     document.getElementById("finish_route").classList.toggle('occult');
     document.getElementById("kml_btn").classList.remove('occult');
-    document.getElementById("create_btn").classList.toggle('occult');
+    document.getElementById("dir_btn").classList.toggle('occult');
 
     if (markers.length > 1) {
         displayRoute(markers[0].position, markers[markers.length - 1].position, directionsService,
             directionsRenderer);
     }
 
-     //we copy the markers for the kml
-    
-     for(let i = 0; i < markers.length; i++ )
-     kmlmarkers.push(markers[i]);
+    //we copy the markers for the kml
+
+    for (let i = 0; i < markers.length; i++)
+        kmlmarkers.push(markers[i]);
 
     deleteMarkers();
     google.maps.event.removeListener(routesListener);
@@ -300,16 +296,21 @@ function finishRoute() {
 function clearRoute() {
     document.getElementById("finish_route").classList.add('occult');
     document.getElementById("kml_btn").classList.add('occult');
+    document.getElementById("dir_btn").classList.add('occult');
     document.getElementById("create_btn").classList.remove('occult');
     document.getElementById("duration_route").innerText = "";
 
-    kmlmarkers=[];
-    polylines=[];
+    kmlmarkers = [];
+    polylines = [];
 
     deleteMarkers();
     directionsRenderer.setMap(null); // clear direction from the map
     directionsRenderer.setPanel(null); // clear directionpanel from the map          
-    directionsRenderer = new google.maps.DirectionsRenderer(); // this is to render again, otherwise your route wont show for the second time searching
+    directionsRenderer = new google.maps.DirectionsRenderer({
+        draggable: true,
+        map: map,
+        panel: document.getElementById('directions-panel')
+    }); // this is to render again, otherwise your route wont show for the second time searching
     directionsRenderer.setMap(map); //this is to set up again
     directions = null;
     google.maps.event.removeListener(routesListener);
@@ -329,9 +330,8 @@ function showDirections() {
 }
 
 function toKML() {
-
-    let stringcheck=false;
-    let markercheck=false;
+    let stringcheck = false;
+    let markercheck = false;
 
     let xw = new XMLWriter('UTF-8');
     xw.formatting = 'indented';//add indentation and newlines
@@ -343,94 +343,80 @@ function toKML() {
     xw.writeAttributeString("xmlns", "http://www.opengis.net/kml/2.2");
     xw.writeStartElement('Document');
 
-    for(let i = 0; i < kmlmarkers.length; i++ )
-    {
+    for (let i = 0; i < kmlmarkers.length; i++) {
         xw.writeStartElement('Placemark');
-            //name
-            xw.writeStartElement('name');
-            xw.writeCDATA( i.toString() );
-            xw.writeEndElement();
-            //description
-            xw.writeStartElement('description');
-            xw.writeCDATA("Parte " +i.toString());
-            xw.writeEndElement();
-            //point and coordinates
-            xw.writeStartElement('Point');
-            xw.writeElementString('extrude', '1');
-            xw.writeElementString('altitudeMode', 'relativeToGround');
-           
-            xw.writeElementString('coordinates', kmlmarkers[i].position.lng().toString()+","+kmlmarkers[i].position.lat().toString()+",0");
-            xw.writeEndElement();
-            xw.writeEndElement();
-            if(i==kmlmarkers.length-1)
-            {
-                console.log("check1")
-            markercheck=true;
-            }
+        //name
+        xw.writeStartElement('name');
+        xw.writeCDATA(i.toString());
+        xw.writeEndElement();
+        //description
+        xw.writeStartElement('description');
+        xw.writeCDATA("Parte " + i.toString());
+        xw.writeEndElement();
+        //point and coordinates
+        xw.writeStartElement('Point');
+        xw.writeElementString('extrude', '1');
+        xw.writeElementString('altitudeMode', 'relativeToGround');
 
-           
+        xw.writeElementString('coordinates', kmlmarkers[i].position.lng().toString() + "," + kmlmarkers[i].position.lat().toString() + ",0");
+        xw.writeEndElement();
+        xw.writeEndElement();
+        if (i == kmlmarkers.length - 1) {
+            console.log("check1")
+            markercheck = true;
+        }
+
+
     }
 
-    for(let i = 0; i < polylines.length; i++)
-    {
+    for (let i = 0; i < polylines.length; i++) {
         xw.writeStartElement('Placemark');
         xw.writeStartElement('LineString');
-                xw.writeElementString('extrude', '1');
-                xw.writeElementString('altitudeMode', 'relativeToGround');
-                xw.writeStartElement( "coordinates" );
-                console.log(polylines[i].getPath().getLength());
+        xw.writeElementString('extrude', '1');
+        xw.writeElementString('altitudeMode', 'relativeToGround');
+        xw.writeStartElement("coordinates");
+        console.log(polylines[i].getPath().getLength());
 
-                for( var j=0; j < polylines[i].getPath().getLength(); j++ ){
-                    
-                    xw.writeString( polylines[i].getPath().getAt(j).lng().toString() + "," + polylines[i].getPath().getAt(j).lat().toString() + ",0" );
+        for (var j = 0; j < polylines[i].getPath().getLength(); j++) {
 
-                    if(j==polylines[i].getPath().getLength()-1)
-                    {
-                    stringcheck=true;
-                    console.log("check2")}
-                }
-                xw.writeEndElement();
+            xw.writeString(polylines[i].getPath().getAt(j).lng().toString() + "," + polylines[i].getPath().getAt(j).lat().toString() + ",0");
+
+            if (j == polylines[i].getPath().getLength() - 1) {
+                stringcheck = true;
+                console.log("check2")
+            }
+        }
         xw.writeEndElement();
-
+        xw.writeEndElement();
     }
 
-   if(markercheck && stringcheck)
-            {
-                  xw.writeEndDocument();
-                  
-        
-            let kml = xw.flush(); //generate the kml string
-            xw.close();//clean the writer
-        
-            
-            toDownload(kml);
-            }
-
-
+    if (markercheck && stringcheck) {
+        xw.writeEndDocument();
+        let kml = xw.flush(); //generate the kml string
+        xw.close();//clean the writer
+        toDownload(kml);
+    }
 }
 
+function toDownload(file) {
+    let type = "text/xml";
+    // Create an invisible A element
+    const a = document.createElement("a");
+    a.style.display = "none";
+    document.body.appendChild(a);
 
-function toDownload(file)
-{
-  let  type= "text/xml";
- // Create an invisible A element
-  const a = document.createElement("a");
-  a.style.display = "none";
-  document.body.appendChild(a);
+    // Set the HREF to a Blob representation of the data to be downloaded
+    a.href = window.URL.createObjectURL(
+        new Blob([file], { type })
+    );
 
-  // Set the HREF to a Blob representation of the data to be downloaded
-  a.href = window.URL.createObjectURL(
-    new Blob([file], { type })
-  );
+    // Use download attribute to set set desired file name
+    a.setAttribute("download", "Ruta.kml");
 
-  // Use download attribute to set set desired file name
-  a.setAttribute("download", "Ruta.kml");
+    // Trigger the download by simulating click
+    a.click();
 
-  // Trigger the download by simulating click
-  a.click();
-
-  // Cleanup
-  window.URL.revokeObjectURL(a.href);
-  document.body.removeChild(a);
-
+    // Cleanup
+    window.URL.revokeObjectURL(a.href);
+    document.body.removeChild(a);
 }
